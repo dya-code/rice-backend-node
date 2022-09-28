@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "ts-node app.ts",
-    "build": "tsc && node dist"
+    "build": "tsc && node dist/app.js"
   },
   "dependencies": {
     "@my-school.info/neis-api": "^1.0.0",
