@@ -1,0 +1,19 @@
+{
+  "name": "rice-backend",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "license": "MIT",
+  "scripts": {
+    "dev": "ts-node app.ts",
+    "build": "tsc && node dist"
+  },
+  "dependencies": {
+    "@my-school.info/neis-api": "^1.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.14",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
