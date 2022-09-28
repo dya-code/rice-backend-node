@@ -17,32 +17,24 @@ app.get('/', (_, res) => {
   res.send("rice api server")
 })
 
-app.get('/meal/:name', async function (req, res) {
+app.get('/meal/:name', async (req, res) => {
 
   const name = req.params.name
 
-  try {
-    const school = await neis.getSchoolInfo({ SCHUL_NM: name })
-    const mealInfo = await neis.getMealInfo({ ATPT_OFCDC_SC_CODE: school[0].ATPT_OFCDC_SC_CODE, SD_SCHUL_CODE: school[0].SD_SCHUL_CODE, MLSV_YMD: daydata })
+  const school = await neis.getSchoolInfo({ SCHUL_NM: name })
+  const mealInfo = await neis.getMealInfo({ ATPT_OFCDC_SC_CODE: school[0].ATPT_OFCDC_SC_CODE, SD_SCHUL_CODE: school[0].SD_SCHUL_CODE, MLSV_YMD: daydata })
+  
+  res.send(mealInfo[1])
 
-    const meal = mealInfo[1]
-
-    res.send(meal)
-  } catch {
-    res.send('no')
-  }
 })
 
-app.get('/info/:name', async function (req, res) {
+app.get('/info/:name', async(req, res) => {
 
   const name = req.params.name
 
-  try {
-    const school = await neis.getSchoolInfo({ SCHUL_NM: name });
-    res.send(school)
-  } catch {
-    res.send('no')
-  }
+  const school = await neis.getSchoolInfo({ SCHUL_NM: name })
+  
+  res.send(school[0])
 
 })
 
